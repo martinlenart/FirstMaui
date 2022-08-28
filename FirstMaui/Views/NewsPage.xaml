@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstMaui.Views.NewsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Refresh" Clicked="Button_Clicked" />
+            <Label x:Name="newsHeader" Text="Header" HorizontalOptions="Center" FontSize="24" />
+            <ListView x:Name="newsHeadlines" HasUnevenRows="true" ItemTapped="newsHeadlines_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="Start" Orientation="Vertical" Padding="3">
+                                    <Image Source="{Binding UrlToImage}" HeightRequest="60"/>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical" Padding="5">
+                                    <Label Text="{Binding DateTime, StringFormat='{0:U}'}"/>
+                                    <Label HorizontalOptions="Start" FontSize="20" FontAttributes="Bold" Text="{Binding Title}"/>
+                                    <Label HorizontalOptions="Start" FontSize="12" FontAttributes="Bold" Text="{Binding Description}"/>
+                                </StackLayout>
+                             </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
